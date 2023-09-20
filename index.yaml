@@ -3,6 +3,16 @@ entries:
   my-test-app:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-09-20T08:10:39.940498709Z"
+    description: A Helm chart for Kubernetes
+    digest: def4f2b6bc00c2bf3aaacb3b98302431e3ab737565b1f64c63e212a48409e8c3
+    name: my-test-app
+    type: application
+    urls:
+    - https://github.com/loveisall1995/helm-charts/releases/download/my-test-app-1.1.0/my-test-app-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-09-20T07:17:35.722719478Z"
     description: A Helm chart for Kubernetes
     digest: 2b2b32538b3d7eca6a3bd3673f35c3f3e992b8a4ac291ef18279e6804b19997b
@@ -11,4 +21,4 @@ entries:
     urls:
     - https://github.com/loveisall1995/helm-charts/releases/download/my-test-app-0.1.0/my-test-app-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-20T07:17:35.722724278Z"
+generated: "2023-09-20T08:10:39.940506109Z"
