@@ -33,7 +33,7 @@ jobs:
       - name: Upload Helm Charts
         uses: xresloader/upload-to-github-release@v1
         with:
-          file:  "**.tgz"
+          file:  "${{ github.workspace }}/charts/my-test-app/**.tgz"
           tag_name: ${{ github.ref }}
           overwrite: true
         env:
