@@ -28,7 +28,6 @@ jobs:
 
       - name: Run chart-releaser
         run: |
-          pwd
           helm package ./charts/my-test-app
 
       - name: Upload Helm Charts
@@ -36,4 +35,5 @@ jobs:
         with:
           artifacts:  /charts/my-test-app/*.tgz
           token: ${{ secrets.GITHUB_TOKEN }}
+          tag: 1.0.0
           replacesArtifacts: true
