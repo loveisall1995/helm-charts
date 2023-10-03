@@ -26,9 +26,6 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v3
 
-      - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.3.1
-
       - name: Run chart-releaser
         run: |
           helm template ./charts/my-test-app
@@ -37,7 +34,7 @@ jobs:
       - name: Upload Helm Charts
         uses: svenstaro/upload-release-action@v2
         with:
-          file:  "/charts/my-test-app/*.tgz"
+          file:  "./charts/my-test-app/*.tgz"
           tag: ${{ github.ref }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           overwrite: true
