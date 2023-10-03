@@ -28,7 +28,8 @@ jobs:
 
       - name: Run chart-releaser
         run: |
-          helm package /charts/my-test-app
+          pwd
+          helm package ./charts/my-test-app
 
       - name: Upload Helm Charts
         uses: ncipollo/release-action@v1
