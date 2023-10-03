@@ -35,5 +35,5 @@ jobs:
         with:
           artifacts:  ./charts/my-test-app/*.tgz
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: 1.0.0
+          tag: 1.0.1
           replacesArtifacts: true
