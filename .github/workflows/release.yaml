@@ -35,14 +35,12 @@ jobs:
           helm package ./charts/my-test-app
 
       - name: Upload Helm Charts
-        uses: xresloader/upload-to-github-release@v1
+        uses: svenstaro/upload-release-action@v2
         with:
-          file:  "my-test-app-1.2.0.tgz"
-          tag_name: my-test-app-1.2.0
+          file:  "/charts/my-test-app/*.tgz"
+          tag: ${{ github.ref }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           overwrite: true
-          draft: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Changelog
         id: build_changelog
