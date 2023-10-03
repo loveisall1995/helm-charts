@@ -36,5 +36,6 @@ jobs:
           file:  "my-test-app-1.1.0.tgz"
           tag_name: my-test-app-1.1.0
           overwrite: true
+          draft: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
