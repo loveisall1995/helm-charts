@@ -3,7 +3,7 @@ name: Release Charts
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   release:
@@ -27,6 +27,13 @@ jobs:
         uses: azure/setup-helm@v3
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.5.0
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: |
+          helm package /charts/my-test-app
+
+      - name: Upload Helm Charts
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts:  /charts/my-test-app/*.tgz
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          replacesArtifacts: true
