@@ -47,5 +47,16 @@ jobs:
       - name: Build Changelog
         id: build_changelog
         uses: mikepenz/release-changelog-builder-action@v4.0.0
+        with:
+          includeOpen: true
+          ignorePreReleases: true
+          failOnError: true
+          fetchViaCommits: true
+          fetchReviewers: true
+          fetchReleaseInformation: true
+          fetchReviews: true
+          commitMode: true
+          exportCache: true
+          exportOnly: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
