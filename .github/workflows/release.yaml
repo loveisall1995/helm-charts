@@ -33,7 +33,7 @@ jobs:
       - name: Upload Helm Charts
         uses: ncipollo/release-action@v1
         with:
-          artifacts:  /charts/my-test-app/*.tgz
+          artifacts:  ./charts/my-test-app/*.tgz
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: 1.0.0
           replacesArtifacts: true
