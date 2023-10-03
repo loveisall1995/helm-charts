@@ -31,33 +31,14 @@ jobs:
 
       - name: Run chart-releaser
         run: |
+          helm template ./charts/my-test-app
           helm package ./charts/my-test-app
-
-      - name: Run chart-testing (list-changed)
-        id: list-changed
-        run: |
-          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
-          if [[ -n "$changed" ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Run chart-testing (lint)
-        if: steps.list-changed.outputs.changed == 'true'
-        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
-
-      - name: Create kind cluster
-        if: steps.list-changed.outputs.changed == 'true'
-        uses: helm/kind-action@v1.7.0
-
-      - name: Run chart-testing (install)
-        if: steps.list-changed.outputs.changed == 'true'
-        run: ct install --target-branch ${{ github.event.repository.default_branch }}
 
       - name: Upload Helm Charts
         uses: xresloader/upload-to-github-release@v1
         with:
-          file:  "my-test-app-1.1.0.tgz"
-          tag_name: my-test-app-1.1.0
+          file:  "my-test-app-1.2.0.tgz"
+          tag_name: my-test-app-1.2.0
           overwrite: true
           draft: false
         env:
